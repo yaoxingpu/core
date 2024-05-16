@@ -296,6 +296,21 @@ export const queuePostRenderEffect = __FEATURE_SUSPENSE__
  * })
  * ```
  */
+/**
+ * 翻译: createRenderer 函数接受两个泛型参数: HostNode 和 HostElement，对应于宿主环境中的 Node 和 Element 类型。
+ * 简单来说，HostNode 就是 Node，HostElement 就是 Element。
+ * 例如，对于 runtime-dom，HostNode 将是 DOM `Node` 接口，HostElement 将是 DOM `Element` 接口。
+ *
+ */
+
+//? 这个 createRenderer 函数是一个 TypeScript 的泛型函数，它接收一个 RendererOptions 类型的参数 options，并返回 baseCreateRenderer 的结果。
+//?
+//? RendererOptions 是一个可能包含多种渲染选项的类型，这些选项定义了如何操作和管理主机节点（HostNode）和主机元素（HostElement）。
+//? 这些主机节点和元素可能是任何类型，但默认情况下，它们被设置为 RendererNode 和 RendererElement 类型。
+//?
+//? baseCreateRenderer 函数的具体实现并未在这段代码中给出，但从函数名可以推测，
+//? 它可能是创建渲染器的基础函数，接收相同的 options 参数，并返回一个渲染器。
+//? 总的来说，createRenderer 函数的作用是接收一些选项，然后调用 baseCreateRenderer 函数来创建一个渲染器。
 export function createRenderer<
   HostNode = RendererNode,
   HostElement = RendererElement,
@@ -306,6 +321,7 @@ export function createRenderer<
 // Separate API for creating hydration-enabled renderer.
 // Hydration logic is only used when calling this function, making it
 // tree-shakable.
+// 翻译: 用于创建启用了 hydration 的渲染器的单独 API。仅在调用此函数时才使用 hydration 逻辑，使其可被 tree-shakable。
 export function createHydrationRenderer(
   options: RendererOptions<Node, Element>,
 ) {
